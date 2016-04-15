@@ -9,7 +9,7 @@ class UI extends MainFrame{
 }
 
 object GuiProgramTwo{
-  def main(args: Array[String]): Unit ={
+  def main(args: Array[String]){
     val ui = new UI
     ui.visible = true
   }

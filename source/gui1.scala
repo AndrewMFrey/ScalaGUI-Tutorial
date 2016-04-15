@@ -7,7 +7,7 @@ class UI extends MainFrame{
 }
 
 object GuiProgramOne{
-  def main(args: Array[String]): Unit ={
+  def main(args: Array[String]){
     val ui = new UI
     ui.visible = true
     println("End of main function")
