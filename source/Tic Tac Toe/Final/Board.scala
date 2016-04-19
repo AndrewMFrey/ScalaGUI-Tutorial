@@ -37,15 +37,18 @@ class Board {
 
   def winner(): Int = {
     for (x <- 0 until 3) {
-      if (grid(x * 3) == grid(x * 3 + 1) && grid(x * 3) == grid(x * 3 + 2) && grid(x * 3) != 0){
+      val rowProduct = grid(x * 3) * grid(x * 3 + 1) * grid(x * 3 + 2)
+      val colProduct = grid(x) * grid(x + 3) * grid(x + 6)
+      if (rowProduct == 1 || rowProduct == 8){
         return grid(x * 3)
-      } else if (grid(x) == grid(x + 3) && grid(x) == grid(x + 6) && grid(x) != 0){
+      } else if (colProduct == 1 || colProduct == 8){
         return grid(x)
       }
     }
-    if (((grid(0) == grid(4) && grid(0) == grid(8)) ||
-        (grid(2) == grid(4) && grid(2) == grid(6))) &&
-        (grid(4) != 0)) {
+    val lDiagonalProduct = grid(0) * grid(4) * grid(8)
+    val rDiagonalProduct = grid(2) * grid(4) * grid(6)
+    if (lDiagonalProduct == 1 || lDiagonalProduct == 8 ||
+        rDiagonalProduct == 1 || rDiagonalProduct == 8) {
       return grid(4)
     }
     if (turn == 9){
